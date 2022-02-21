@@ -129,3 +129,12 @@ Assignment:2
 
     to exit from the application
         os.Exit()
+
+Functions
+    variadic functions
+    anonymous functions
+    Higher order functions
+        Functions can be treated like data
+            1. functions can be assigned to variables
+            2. functions can be passed as arguments to other functions
+            3. functions can be returned by other functions
