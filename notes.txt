@@ -1,0 +1,66 @@
+Magesh Kuppan
+
+Schedule:
+    Commence    : 9:30 AM
+    Tea Break   : 11:00 AM (20 mins)
+    Lunch Break : 1:00 PM (1 hr)
+    Tea Break   : 3:30 PM (20 mins)
+    Wind up     : 5:30 PM
+
+Methodology:
+    No powerpoint
+    100% hands on
+    Atleast 50% of the participants should have completed the assignments for us to move on.
+
+About You:
+    Name
+    Experience
+    Primary Skillset
+    Experience in Golang (if any)
+    Any interesting books / shows you read / watched recently
+
+Software Requirements:
+    1. Go (go.dev/dl)
+    2. Visual Studio Code
+
+Why Go?
+    1. Better Performance (fact : go performance is equivalent to 'C')
+    2. Simplicity
+    3. Scalability
+    4. Lesser Compilation Time
+    5. 
+
+Paradox of Choice (Barry Schwartz)
+
+    1. Simplicity
+        ONLY 25 keywords
+            a. No access modifiers
+            b. No classes (Only structs & functions)
+            c. No inheritance (Only composition)
+            d. No pointer arithmetic
+            e. Everything is a value (no implicit/builtin reference type)
+            f. No implicit type conversion
+    2. As powerful as 'C' without the overheads of 'C'
+        a. Go has a builtin garbage collector
+        b. Compiled to Native code
+        c. Fast compilation
+    3. Built for concurrency
+        Language features built for concurrency
+            go, range, select, channel (data type), <- (channel operator)
+            sync package
+        100s of goroutines can be executed using 1 OS thread
+
+concurrency
+    The ability to have more than one 'execution path' in the application
+
+
+func f1(){
+
+}
+
+func f2(){
+
+}
+
+go f1()
+f2()
