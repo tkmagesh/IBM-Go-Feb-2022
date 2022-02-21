@@ -136,6 +136,8 @@ func main() {
 	)
 
 	fmt.Println(red, green, blue)
+	fmt.Printf("typeof red  = %T\n", red)
+
 }
 
 func print() {
