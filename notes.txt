@@ -64,3 +64,19 @@ func f2(){
 
 go f1()
 f2()
+
+Language
+    Data Types
+
+
+Running a go program
+    go run <filename>.go
+
+Creating a build
+    go build <filename>.go
+    go build -o hw hello-world.go  (customize the name of the executable)
+    
+Creating a cross-platform build
+    GOOS=windows GOARCH=amd64 go build hello-world.go
+
+
