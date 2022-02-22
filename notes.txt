@@ -147,4 +147,5 @@ Collections
     Array
         Fixed size collection of data of the same type
     Slice
+        Varying size collection of data of the same type
     Map
