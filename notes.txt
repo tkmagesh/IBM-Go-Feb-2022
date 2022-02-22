@@ -142,3 +142,9 @@ Functions
 
 Assignment:3
     Refactor the assignment:2 solution using functions
+
+Collections
+    Array
+        Fixed size collection of data of the same type
+    Slice
+    Map
