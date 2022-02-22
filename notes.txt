@@ -150,3 +150,37 @@ Collections
         Varying size collection of data of the same type
     Map
         Collection of key/value pairs
+
+Modularity
+    Before Go 1.13
+        GOPATH
+            bin
+                binaries of 3rd party packages
+            pkg
+                code of 3rd party packages
+            src
+                github.com
+                    tkmagesh
+                        my-app
+                            calculator
+                                calc.go
+                            import "github.com/tkmagesh/my-app/calculator"
+
+    Modules
+        go.mod file
+            manifest file for the application
+                name
+                go runtime version
+                dependencies
+
+        To create a module
+            go mod init <module_name>
+        
+        To install 3rd party modules
+            go get <module_name>
+
+        To update the go.mod file based on the usage of the modules
+            go mod tidy
+
+        To localize the dependencies of the application
+            go mod vendor
