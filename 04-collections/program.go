@@ -55,4 +55,54 @@ func main() {
 	fmt.Println("After appending 1 more new product")
 	products = append(products, "IPad")
 	fmt.Printf("%#v, len=%d, capacity=%d\n", products, len(products), cap(products))
+
+	fmt.Printf("\nSlicing\n")
+	/*
+		[lo : hi] => from lo to hi-1
+		[lo:] => from lo to len-1
+		[:hi] => from 0 to hi-1
+		[:] => copy of the slice
+	*/
+	fmt.Println("products[2:5] => ", products[2:5])
+	fmt.Println("products[3:] => ", products[3:])
+	fmt.Println("products[:3] => ", products[:3])
+
+	var newProducts = []string{"book", "notebook"}
+	products = append(products, newProducts...)
+	fmt.Println(products)
+
+	//Map
+	fmt.Printf("\nMaps\n")
+	//var productRanks map[string]int = map[string]int{"Pen": 1, "Pencil": 4}
+	var productRanks map[string]int = map[string]int{
+		"Pen":    1,
+		"Pencil": 4,
+	}
+	/*
+		var productRanks map[string]int = make(map[string]int)
+		productRanks["Pen"] = 1
+	*/
+	productRanks["Marker"] = 3
+	productRanks["Scribble-Pad"] = 2
+	productRanks["Mouse"] = 5
+	fmt.Println(productRanks, len(productRanks))
+
+	//iterating a map
+	fmt.Println("Iterating a map (using range construct)")
+	for key, value := range productRanks {
+		fmt.Printf("Rank of %s is %d\n", key, value)
+	}
+
+	//checking if a key exists
+	var keyToSearch = "Fountain-Pen"
+	if value, exists := productRanks[keyToSearch]; exists {
+		fmt.Printf("%q exists with value %d\n", keyToSearch, value)
+	} else {
+		fmt.Printf("%q does not exist\n", keyToSearch)
+	}
+
+	//deleting a key/value pair
+	delete(productRanks, "Pen")
+	fmt.Println("After deleting Pen")
+	fmt.Println(productRanks)
 }
