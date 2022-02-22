@@ -40,6 +40,7 @@ Paradox of Choice (Barry Schwartz)
             d. No pointer arithmetic
             e. Everything is a value (no implicit/builtin reference type)
             f. No implicit type conversion
+            g. No exceptions (Only errors)
     2. As powerful as 'C' without the overheads of 'C'
         a. Go has a builtin garbage collector
         b. Compiled to Native code
