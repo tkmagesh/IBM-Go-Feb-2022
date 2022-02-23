@@ -184,3 +184,19 @@ Modularity
 
         To localize the dependencies of the application
             go mod vendor
+
+Structs
+    Assignment:5
+        Create Employee & Organization structs
+        Employee
+            Id
+            Name
+            Salary
+            Organization
+
+        Organization
+            Id
+            Name
+            City
+
+        Create an instance of an employee (with organization details and print)
