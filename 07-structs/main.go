@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"structs-demo/models"
+)
 
 type Product struct {
 	Id       int
@@ -54,6 +57,21 @@ func main() {
 	fmt.Println("After applying discount")
 	ApplyDiscount(product, 10)
 	fmt.Println(Format(*product))
+
+	/*
+		emp := models.Employee{
+			Id:     100,
+			Name:   "Magesh",
+			Salary: 10000,
+			Org: models.Organization{
+				Id:   900,
+				Name: "IBM",
+				City: "Bengaluru",
+			},
+		}
+	*/
+	emp := models.NewEmployee(100, "Magesh", 10000, 900, "IBM", "Bengaluru")
+	fmt.Println(emp)
 
 }
 
