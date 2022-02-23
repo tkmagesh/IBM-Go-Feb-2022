@@ -41,7 +41,7 @@ func (products Products) Sort(attrName string) error {
 			return products[i].Cost < products[j].Cost
 		},
 		"Units": func(i, j int) bool {
-			return products[i].Units < products[j].Id
+			return products[i].Units < products[j].Units
 		},
 		"Category": func(i, j int) bool {
 			return products[i].Category < products[j].Category
