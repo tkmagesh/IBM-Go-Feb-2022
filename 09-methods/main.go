@@ -14,8 +14,7 @@ func (ms MyStr) Length() int {
 type RawProduct models.Product
 
 func (rp RawProduct) Raw() string {
-	p := models.Product(rp)
-	return fmt.Sprintf("%d-%s-%v", p.Id, p.Name, p.Cost)
+	return fmt.Sprintf("%d-%s-%v", rp.Id, rp.Name, rp.Cost)
 }
 
 func main() {
