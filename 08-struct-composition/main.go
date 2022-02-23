@@ -15,6 +15,8 @@ type PerishableProduct struct {
 	Expiry string
 }
 
+var x int
+
 func main() {
 
 	var grapes = PerishableProduct{
@@ -32,7 +34,7 @@ func main() {
 	fmt.Println(FormatPerishableProduct(grapes))
 }
 
-func FormatProduct(p Product) string {
+func Format(p Product) string {
 	return fmt.Sprintf("Id = %d, Name = %s, Cost = %v, Units = %d, Category = %s", p.Id, p.Name, p.Cost, p.Units, p.Category)
 }
 
