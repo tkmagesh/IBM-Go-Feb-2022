@@ -1,22 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"methods-demo/models"
+)
 
-type Product struct {
-	Id       int
-	Name     string
-	Cost     float64
-	Units    int
-	Category string
+type MyStr string //alias for string
+
+func (ms MyStr) Length() int {
+	return len(ms)
 }
 
-type PerishableProduct struct {
-	Product
-	Expiry string
+type RawProduct models.Product
+
+func (rp RawProduct) Raw() string {
+	p := models.Product(rp)
+	return fmt.Sprintf("%d-%s-%v", p.Id, p.Name, p.Cost)
 }
 
 func main() {
-	pen := Product{
+	pen := models.Product{
 		Id:       100,
 		Name:     "pen",
 		Cost:     10,
@@ -34,8 +37,8 @@ func main() {
 	fmt.Println(pen.Format())
 
 	//perishable product
-	var grapes = PerishableProduct{
-		Product: Product{
+	var grapes = models.PerishableProduct{
+		Product: models.Product{
 			Id:       200,
 			Name:     "Grapes",
 			Cost:     50,
@@ -46,16 +49,10 @@ func main() {
 	}
 
 	fmt.Println(grapes.Format())
-}
 
-func (p Product) Format() string {
-	return fmt.Sprintf("Id = %d, Name = %s, Cost = %v, Units = %d, Category = %s", p.Id, p.Name, p.Cost, p.Units, p.Category)
-}
+	var s = MyStr("This is a sample string")
+	fmt.Println(s.Length())
 
-func (p *Product) ApplyDiscount(discount float64) {
-	p.Cost = p.Cost * ((100 - discount) / 100)
-}
-
-func (pp PerishableProduct) Format() string {
-	return fmt.Sprintf("%s, Expiry = %s", pp.Product.Format(), pp.Expiry)
+	rawPen := RawProduct(pen)
+	fmt.Println(rawPen.Raw())
 }
