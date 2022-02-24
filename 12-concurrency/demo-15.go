@@ -5,15 +5,14 @@ import (
 	"time"
 )
 
-/* Keep generating the even number until the user hits ENTER key */
+/* Generating even numbers for 5 seconds */
 
 func main() {
 	done := make(chan bool)
 	evenCh := genEvenNos(done)
 
 	go func() {
-		var input string
-		fmt.Scanln(&input)
+		time.Sleep(5 * time.Second)
 		done <- true
 	}()
 	for no := range evenCh {
