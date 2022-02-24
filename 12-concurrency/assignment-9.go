@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	ch1 := make(chan string)
+	ch1 := make(chan string, 1)
 	ch2 := make(chan string)
 	wg := &sync.WaitGroup{}
 	fmt.Println("main started")
