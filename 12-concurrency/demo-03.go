@@ -3,26 +3,30 @@ package main
 import (
 	"fmt"
 	"sync"
-	"time"
 )
 
 var wg sync.WaitGroup
+var mutex sync.Mutex
+
+var opCount int
 
 func main() {
 	fmt.Println("main started")
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 100; i++ {
 		wg.Add(1) //initialize the counter
 		go f1(i)
 	}
 	f2()
 	wg.Wait() // block until the counter becomes zero
+	fmt.Printf("opCount = %d\n", opCount)
 	fmt.Println("main completed")
 }
 
 func f1(id int) {
-	fmt.Printf("f1 started - %d\n", id)
-	time.Sleep(3 * time.Second)
-	fmt.Printf("f1 completed - %d\n", id)
+	//opCount++
+	mutex.Lock()
+	opCount = opCount + 1
+	mutex.Unlock()
 	wg.Done() //decrement the counter by 1
 }
 
