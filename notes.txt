@@ -230,3 +230,7 @@ IO
                 open
                 close
                 delete
+
+Testing
+    To run the tests
+        go test -v ./...
