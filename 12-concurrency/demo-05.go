@@ -23,7 +23,6 @@ func main() {
 }
 
 func f1(id int) {
-
 	atomic.AddInt64(&opCount, 1)
 	wg.Done() //decrement the counter by 1
 }
