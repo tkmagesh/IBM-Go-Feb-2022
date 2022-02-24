@@ -177,7 +177,7 @@ Modularity
             go mod init <module_name>
         
         To install 3rd party modules
-            go get <module_name>
+            go get <module_name>@version
 
         To update the go.mod file based on the usage of the modules
             go mod tidy
