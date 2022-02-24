@@ -209,3 +209,24 @@ Concurrency
         channel read operation is ALWAYS a blocking operation
 
         channel write operation can succeed ONLY if a read operation is already intiated (conditions apply)
+
+IO
+    io package
+        Base interfaces
+            reader
+            writer
+            closer
+            seeker
+        ioutil
+            read file
+            write file
+        bufio
+            buffered reader
+            buffered writer
+            buffered reader/writer
+        os
+            file operations
+                create
+                open
+                close
+                delete
