@@ -200,3 +200,12 @@ Structs
             City
 
         Create an instance of an employee (with organization details and print)
+
+Concurrency
+    To detect data race
+        go run --race .
+
+    channels
+        channel read operation is ALWAYS a blocking operation
+
+        channel write operation can succeed ONLY if a read operation is already intiated (conditions apply)
