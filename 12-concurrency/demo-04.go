@@ -6,9 +6,21 @@ import (
 )
 
 var wg sync.WaitGroup
-var mutex sync.Mutex
 
-var opCount int
+type OpCount struct {
+	sync.Mutex
+	Count int
+}
+
+func (opCount *OpCount) Increment() {
+	opCount.Lock()
+	{
+		opCount.Count = opCount.Count + 1
+	}
+	opCount.Unlock()
+}
+
+var opCount OpCount
 
 func main() {
 	fmt.Println("main started")
@@ -18,17 +30,13 @@ func main() {
 	}
 	f2()
 	wg.Wait() // block until the counter becomes zero
-	fmt.Printf("opCount = %d\n", opCount)
+	fmt.Printf("opCount = %d\n", opCount.Count)
 	fmt.Println("main completed")
 }
 
 func f1(id int) {
 	//opCount++
-	mutex.Lock()
-	{
-		opCount = opCount + 1
-	}
-	mutex.Unlock()
+	opCount.Increment()
 	wg.Done() //decrement the counter by 1
 }
 

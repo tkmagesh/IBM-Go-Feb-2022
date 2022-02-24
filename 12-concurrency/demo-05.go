@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 	"sync"
+	"sync/atomic"
 )
 
 var wg sync.WaitGroup
-var mutex sync.Mutex
 
-var opCount int
+var opCount int64
 
 func main() {
 	fmt.Println("main started")
@@ -23,12 +23,8 @@ func main() {
 }
 
 func f1(id int) {
-	//opCount++
-	mutex.Lock()
-	{
-		opCount = opCount + 1
-	}
-	mutex.Unlock()
+
+	atomic.AddInt64(&opCount, 1)
 	wg.Done() //decrement the counter by 1
 }
 
